@@ -11,4 +11,13 @@ public class BookingRoomController {
     private String roomType;
 
     private String propertyType;
+
+    private date checkIn;
+
+    private date checkOut;
+
+    private String place;
+
+    private String facilities;
+
 }

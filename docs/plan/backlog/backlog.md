@@ -28,8 +28,6 @@
 ## booking rooms
     -can be filtered by:property type, room type
 
-## view rooms
-    user can view rooms
 
 ## car rentals
     -can be filtered by:location, duration, car specifications
