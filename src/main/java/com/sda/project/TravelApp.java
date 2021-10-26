@@ -1,7 +1,12 @@
 package com.sda.project;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class TravelApp {
+
     public static void main(String[] args) {
-        System.out.println("Hello travel- app");
+        SpringApplication.run(TravelApp.class, args);
     }
 }

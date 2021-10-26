@@ -1,15 +1,16 @@
-datasource:
-  driver-class-name: org.h2.Driver
-  url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-  username: root
-  password: root11
+server.port: 8081
+spring:
+  # mysql datasource configuration
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/travel-app?serverTimezone=UTC
+    username: root
+    password: root
   jpa:
     hibernate:
       ddl-auto: create
-      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      use-new-id-generator-mappings: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
         show_sql: true
         format_sql: false
