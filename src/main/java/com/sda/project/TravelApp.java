@@ -1,6 +1,6 @@
 package com.sda.project;
 
-public class Application {
+public class TravelApp {
     public static void main(String[] args) {
         System.out.println("Hello travel- app");
     }
