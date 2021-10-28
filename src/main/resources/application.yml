@@ -5,7 +5,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/travel-app?serverTimezone=UTC
     username: root
-    password: root
+    password: root11
   jpa:
     hibernate:
       ddl-auto: create
