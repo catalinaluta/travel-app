@@ -53,7 +53,7 @@ public class ReservationController {
             String errorMessage = e.getMessage();
             log.error(errorMessage);
             model.addAttribute("errorMessage", errorMessage);
-            model.addAttribute("project", reservation);
+            model.addAttribute("reservation", reservation);
             model.addAttribute("users", userService.findAll());
             return "reservation/reservation-add";
         }
