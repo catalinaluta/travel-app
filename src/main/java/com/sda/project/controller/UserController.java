@@ -49,13 +49,13 @@ public class UserController {
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "login";
+        return "user/login";
     }
 
     @GetMapping("/login-error")
     public String loginError(Model model) {
         model.addAttribute("loginError", true);
-        return "login";
+        return "user/login";
     }
 
     // crud

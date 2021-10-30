@@ -3,10 +3,12 @@ package com.sda.project.config;
 import com.sda.project.controller.exception.ResourceAlreadyExistsException;
 import com.sda.project.model.Privilege;
 import com.sda.project.model.PrivilegeType;
+import com.sda.project.model.Reservation;
 import com.sda.project.model.Role;
 import com.sda.project.model.RoleType;
 import com.sda.project.model.User;
 import com.sda.project.repository.PrivilegeRepository;
+import com.sda.project.repository.ReservationRepository;
 import com.sda.project.repository.RoleRepository;
 import com.sda.project.repository.UserRepository;
 import org.slf4j.Logger;
@@ -33,6 +35,9 @@ public class DbInit {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ReservationRepository reservationRepository;
+
     @Bean
     public CommandLineRunner initialData() {
         return args -> {
@@ -47,12 +52,22 @@ public class DbInit {
             createRoleIfNotFound(RoleType.USER, Set.of(readPrivilege, writePrivilege));
 
             // create main admin, admin, user
-            User mainAdmin = createMainAdmin();
-            userRepository.save(mainAdmin);
+            createMainAdmin();
+            createAdmin();
+            createUser();
 
-            User admin = createAdmin();
-            User user = createUser();
+            createReservation();
         };
+    }
+
+    private Reservation createReservation() {
+        Reservation reservation = new Reservation();
+        reservation.setPlace("ploiesti");
+        reservation.setPropertyType("hotel");
+        reservation.setRoomType("double");
+        reservation.setFacilities("facilities");
+        reservationRepository.save(reservation);
+        return reservation;
     }
 
     private User createMainAdmin() {
