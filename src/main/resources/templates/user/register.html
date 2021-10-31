@@ -2,13 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <div th:replace="fragments/head-css :: head-css"/>
     <title>Register</title>
 </head>
 
 <body>
 <div>
-    <h1>Register page</h1>
+    <h1>Register form</h1>
 </div>
+
+<form method="post" action="/register" th:object="${serDto}">
+    <input type="text" placeholder="First name" th:field="*{firstName}">
+    <input type="text" placeholder="Last name" th:field="*{lastName}">
+    <br>
+    <input type="email" placeholder="Email" th:field="*{email}">
+    <br>
+    <input type="password" placeholder="Password" th:field="*{password}">
+    <br>
+
+</form>
+
+    <button type="button" class="btn btn-dark">Register</button>
+
+<div th:replace="fragments/footer-js :: footer-js"/>
+
 </body>
 
 </html>
