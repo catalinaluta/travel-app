@@ -5,38 +5,44 @@
 # 2. define entities
 
 ## user
-- can register and login
-- can view rooms
-- can book rooms
+a user can have multiple reservations
 
+# properties
+a property can have multiple rooms
 
-## admin
-- can add rooms
-- can remove rooms
+# rooms
+a room can have one property
 
 ## reservations
-- can be filtered by:property type, room type
+a reservation can have one user
 
 # 3. create epics
-- user
-- view rooms
-- book rooms
-- project
-- sprint
-- task
+- register
+- manage properties
+- manage rooms
+- manage reservations
 
 # 4. create backlog
-- user click `Register` and navigates to register form
-- user inputs data
-  - email input (email format *)
-  - password input
-  - first name input
-  - last name input
-- user clicks the `Create account` button, and the user should be saved in db
-- input validation *
 
 ## register
 - view register page
 - register with email and password
 - login with email and password
 - logout
+
+## manage properties
+- view properties page
+- add property (admin)
+- edit property (admin)
+- delete property (admin)
+
+## manage rooms
+- add rooms (admin)
+- update room (admin)
+- remove rooms (admin)
+
+## manage reservations
+- view reservations page
+- add reservation
+- edit reservation
+- cancel reservation

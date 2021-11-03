@@ -24,12 +24,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/index" ,"/register", "/register/add", "/login").permitAll()
+                // common
+                .antMatchers("/", "/index" ,"/register/**", "/login").permitAll()
+                // static resources
                 .antMatchers("/static/favicon.ico", "/images/**", "/js/**", "/css/**").permitAll()
 
-                // TODO: temporary
-                .antMatchers("/reservations").permitAll()
+                .antMatchers("/home/**").permitAll()
 
+                .antMatchers("/reservations/**").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/users").hasRole("ADMIN")
                 .anyRequest().authenticated();
 

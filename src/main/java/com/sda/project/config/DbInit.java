@@ -57,6 +57,8 @@ public class DbInit {
             createUser();
 
             createReservation();
+
+            // TODO: create property
         };
     }
 

@@ -96,6 +96,14 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return id + roomType + propertyType + checkIn + checkOut + place + facilities;
+        return "Reservation{" +
+                "id=" + id +
+                ", roomType='" + roomType + '\'' +
+                ", propertyType='" + propertyType + '\'' +
+                ", checkIn=" + checkIn +
+                ", checkOut=" + checkOut +
+                ", place='" + place + '\'' +
+                ", facilities='" + facilities + '\'' +
+                '}';
     }
 }
