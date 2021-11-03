@@ -17,6 +17,7 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String roomCode;
+    private String roomType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "property_id")
