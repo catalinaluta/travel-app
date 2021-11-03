@@ -1,7 +1,6 @@
 # 1. define objective
 - view rooms
 - booking rooms
-- car rentals
 
 # 2. define entities
 
@@ -9,31 +8,32 @@
 - can register and login
 - can view rooms
 - can book rooms
-- can rent a car
+
 
 ## admin
 - can add rooms
 - can remove rooms
-- can add cars
-- can remove cars
 
-## booking rooms
+## reservations
 - can be filtered by:property type, room type
-
-## car rentals
-- can be filtered by:location, duration, car specifications
 
 # 3. create epics
 - user
 - view rooms
-   - book rooms
-   - rent a car
+- book rooms
 - project
 - sprint
 - task
 
 # 4. create backlog
-- add user stories
+- user click `Register` and navigates to register form
+- user inputs data
+  - email input (email format *)
+  - password input
+  - first name input
+  - last name input
+- user clicks the `Create account` button, and the user should be saved in db
+- input validation *
 
 ## register
 - view register page

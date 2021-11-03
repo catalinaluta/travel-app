@@ -3,7 +3,6 @@ package com.sda.project.dto;
 public class UserDto {
 
 
-
     private String firstName;
 
     private String lastName;
@@ -45,7 +44,6 @@ public class UserDto {
     }
 
 
-
     public UserDto setPassword(String password) {
         this.password = password;
         return this;
@@ -55,12 +53,6 @@ public class UserDto {
 
     @Override
     public String toString() {
-        return "UserDto{" +
-                "id="  +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return firstName + lastName +  email  + password ;
     }
 }
