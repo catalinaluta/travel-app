@@ -17,8 +17,9 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String roomCode;
-    private String roomType;
+    private RoomType roomType;
 
+    // don't add children in toString()
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "property_id")
     private Property property;
@@ -47,11 +48,20 @@ public class Room {
         this.property = property;
     }
 
+    public RoomType getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(RoomType roomType) {
+        this.roomType = roomType;
+    }
+
     @Override
     public String toString() {
         return "Room{" +
                 "id=" + id +
                 ", roomCode='" + roomCode + '\'' +
+                ", roomType='" + roomType + '\'' +
                 '}';
     }
 }
