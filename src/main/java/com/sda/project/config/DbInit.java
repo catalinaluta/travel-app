@@ -1,16 +1,8 @@
 package com.sda.project.config;
 
 import com.sda.project.controller.exception.ResourceAlreadyExistsException;
-import com.sda.project.model.Privilege;
-import com.sda.project.model.PrivilegeType;
-import com.sda.project.model.Reservation;
-import com.sda.project.model.Role;
-import com.sda.project.model.RoleType;
-import com.sda.project.model.User;
-import com.sda.project.repository.PrivilegeRepository;
-import com.sda.project.repository.ReservationRepository;
-import com.sda.project.repository.RoleRepository;
-import com.sda.project.repository.UserRepository;
+import com.sda.project.model.*;
+import com.sda.project.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Properties;
 import java.util.Set;
 
 @Configuration
@@ -71,6 +64,16 @@ public class DbInit {
         reservationRepository.save(reservation);
         return reservation;
     }
+
+    private Property addProperty() {
+        Property property = new Property();
+        property.setName("");
+        property.setLocation("");
+        property.setFacilities("", "");
+        Properties propertyRepository;
+        propertyRepository.save(property);
+        return property;
+
 
     private User createMainAdmin() {
         User admin = new User(
