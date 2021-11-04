@@ -13,10 +13,9 @@ import java.util.List;
 @Service
 public class PropertyService {
 
-
     private static final Logger log = LoggerFactory.getLogger(PropertyService.class);
 
-   private final PropertyRepository propertyRepository;
+    private final PropertyRepository propertyRepository;
 
     @Autowired
     public PropertyService(PropertyRepository propertyRepository) {
