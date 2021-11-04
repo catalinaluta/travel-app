@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/static/favicon.ico", "/images/**", "/js/**", "/css/**").permitAll()
 
                 .antMatchers("/home/**").permitAll()
-
+                .antMatchers("/properties/**").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/reservations/**").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/users").hasRole("ADMIN")
                 .anyRequest().authenticated();

@@ -33,6 +33,7 @@ public class DbInit {
     @Autowired
     private PropertyRepository propertyRepository;
 
+    @Autowired
     private RoomRepository roomRepository;
 
     @Bean
@@ -55,7 +56,10 @@ public class DbInit {
 
             createReservation();
 
-            // TODO: create property
+            Property property = createProperty();
+            Room room = createRoom();
+            property.addRoom(room);
+            propertyRepository.save(property);
         };
     }
 
@@ -80,8 +84,8 @@ public class DbInit {
 
         private Room createRoom() {
            Room room = new Room();
-           room.setRoomType();
-           room.setRoomCode(" ");
+           room.setRoomType(RoomType.DOUBLE);
+           room.setRoomCode("301");
            roomRepository.save(room);
            return room;
         }
