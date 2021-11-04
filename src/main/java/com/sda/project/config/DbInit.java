@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Properties;
 import java.util.Set;
 
 @Configuration
@@ -30,6 +29,11 @@ public class DbInit {
 
     @Autowired
     private ReservationRepository reservationRepository;
+
+    @Autowired
+    private PropertyRepository propertyRepository;
+
+    private RoomRepository roomRepository;
 
     @Bean
     public CommandLineRunner initialData() {
@@ -65,14 +69,22 @@ public class DbInit {
         return reservation;
     }
 
-    private Property addProperty() {
+    private Property createProperty() {
         Property property = new Property();
-        property.setName("");
-        property.setLocation("");
-        property.setFacilities("", "");
-        Properties propertyRepository;
+        property.setName("Hotel Tower One Brasov");
+        property.setLocation("Brasov");
+        property.setFacilities("parking, spa, WIFI");
         propertyRepository.save(property);
         return property;
+    }
+
+        private Room createRoom() {
+           Room room = new Room();
+           room.setRoomType();
+           room.setRoomCode(" ");
+           roomRepository.save(room);
+           return room;
+        }
 
 
     private User createMainAdmin() {

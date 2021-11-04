@@ -77,4 +77,7 @@ public class Property {
     public void setRooms(Set<Room> rooms) {
         this.rooms = rooms;
     }
+
+    public void setFacilities(String facilities ) {
+    }
 }

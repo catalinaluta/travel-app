@@ -64,4 +64,7 @@ public class Room {
                 ", roomType='" + roomType + '\'' +
                 '}';
     }
+
+    public void setRoomType() {
+    }
 }
