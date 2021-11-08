@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <div th:replace="fragments/head-css :: head-css"/>
+
     <title>Register</title>
 </head>
 
 <body>
-<div>
-    <h1>Register form</h1>
-</div>
 
-<form method="post" action="/register" th:object="${userDto}">
-    <input type="text" placeholder="First name" th:field="*{firstName}">
-    <input type="text" placeholder="Last name" th:field="*{lastName}">
-    <br>
-    <input type="email" placeholder="Email" th:field="*{email}">
-    <br>
-    <input type="password" placeholder="Password" th:field="*{password}">
-    <br>
+<h2>Create an account</h2>
+
+<form class="row g-3 needs-validation" method="post" novalidate th:action="@{/register}" th:object="${user}">
+
+    <div class="col-md-12 form-group required">
+        <label for="email" class="form-label">Email</label>
+        <input autofocus class="form-control" id="email" placeholder="Email" required th:field="*{email}" type="email">
+    </div>
+
+    <div class="col-md-12 form-group required">
+        <label for="password" class="form-label">Password</label>
+        <input class="form-control" id="password" placeholder="Password" required th:field="*{password}"
+               type="password">
+    </div>
+
+    <div class="col-md-12 form-group required">
+        <label class="form-label" for="confirmPassword">Confirm Password</label>
+        <input class="form-control" id="confirmPassword" placeholder="Confirm password" required type="password">
+    </div>
+
+    <div class="col-md-12 form-group required">
+        <label for="firstName" class="form-label">First name</label>
+        <input class="form-control" id="firstName" placeholder="First name" required th:field="*{firstName}" type="text">
+    </div>
+
+    <div class="col-md-12 form-group required">
+        <label for="lastName" class="form-label">Last name</label>
+        <input class="form-control" id="lastName" placeholder="Last name" required th:field="*{lastName}" type="text">
+    </div>
+
+    <div class="col-12">
+        <a th:href="@{/}">
+            <button class="btn btn-secondary" id="cancel" type="button">Back</button>
+        </a>
+        <button class="btn btn-primary" id="save" type="submit">Create account</button>
+    </div>
 
 </form>
 
-    <button type="button" class="btn btn-dark">Register</button>
-
+<div th:replace="fragments/footer :: footer"/>
 <div th:replace="fragments/footer-js :: footer-js"/>
 
 </body>
-
 </html>

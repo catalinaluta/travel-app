@@ -54,7 +54,7 @@ public class DbInit {
             createAdmin();
             createUser();
 
-            createReservation();
+            createReservation();///am uitat aici
 
             Property property = createProperty();
             Room room = createRoom();
@@ -81,6 +81,15 @@ public class DbInit {
         propertyRepository.save(property);
         return property;
     }
+
+    private Property createProperty() {
+        Property property = new Property();
+        property.setName("International Bucharest City Centre Hotel");
+        property.setLocation("Bucuresti");
+        property.setFacilities("parking, Restaurant, WIFI");
+        propertyRepository.save(property);
+        return property;
+
 
         private Room createRoom() {
            Room room = new Room();
