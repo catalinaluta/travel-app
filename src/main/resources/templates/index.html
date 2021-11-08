@@ -6,41 +6,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
-
-    <a class="navbar-brand" href="/home">
-        <img th:src="@{/images/travel-suitcase.jpg}"/>
-    </a>
-
-    <a class="navbar-brand" th:href="@{/}">Home</a>
-
-    <a class="navbar-brand" th:href="@{/properties}">Properties</a>
-
-
-
-
-    <!-- TODO: display these buttons only if not authenticated -->
-
-    <!-- navigation button -->
-    <!-- must search in Controller @GetMapping("/login") -->
-    <a th:href="@{/login}">
-        <!-- gray button -->
-        <button class="btn btn-secondary" id="login" name="login" type="button">Log in</button>
-    </a>
-
-    <!-- must search in Controller @GetMapping("/register") -->
-    <a th:href="@{/register}">
-        <button class="btn btn-primary" id="register" name="register" type="submit">Register</button>
-    </a>
-
-    <!-- Stays -->
-
-</nav>
-<br>
-<br>
-<br>
-<br>
-
+<div th:replace="fragments/header :: navbar"/>
 
 <div class="container img-fluid">
     <div text align="center">Book you journey now!</div>

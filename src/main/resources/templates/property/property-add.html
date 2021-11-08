@@ -22,20 +22,28 @@
 
         <!-- location -->
         <div class="col-md-2 form-group required">
-            <label for="projectKey" class="form-label">Location</label>
-            <input class="form-control" id="projectKey" placeholder="Project key" required th:field="*{projectKey}"
+            <label for="location" class="form-label">Location</label>
+            <input class="form-control" id="location" required th:field="*{location}"
                    type="text">
         </div>
 
         <!-- facilities -->
+<!--        <div class="col-md-2 form-group required">-->
+<!--            <label for="facilities" class="form-label">Facilities</label>-->
+<!--            <input class="form-control" id="facilities" required th:field="*{facilities}"-->
+<!--                   type="text">-->
+<!--        </div>-->
         <div class="col-md-2 form-group required">
-            <label for="projectKey" class="form-label">Facilities</label>
-            <input class="form-control" id="facilities" placeholder="Project key" required th:field="*{projectKey}"
-                   type="text">
-            <button type="button" class="btn btn-dark">Add property</button>
+            <label for="facility">Facility</label>
+            <select class="custom-select tm-select-accounts" id="facility" value="Select facility"
+                    th:field="*{facility}" required>
+                <option value="" disabled>Select facility</option>
+                <option th:each="facility : ${T(com.sda.project.model.Facility.values()}"
+                        th:value="${facility}"
+                        th:text="${facility}">
+                </option>
+            </select>
         </div>
-
-        <button type="button" class="btn btn-dark">Dark</button>
 
     </div>
 

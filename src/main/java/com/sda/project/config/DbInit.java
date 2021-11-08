@@ -79,7 +79,7 @@ public class DbInit {
         Property property = new Property();
         property.setName("Hotel Tower One Brasov");
         property.setLocation("Brasov");
-        property.setFacilities("parking, spa, WIFI");
+        property.setFacilities(Facility.WIFI);
         propertyRepository.save(property);
         return property;
     }
@@ -88,7 +88,7 @@ public class DbInit {
         Property property = new Property();
         property.setName("International Bucharest City Centre Hotel");
         property.setLocation("Bucuresti");
-        property.setFacilities("parking, Restaurant, WIFI");
+        property.setFacilities(Facility.RESTAURANT);
         propertyRepository.save(property);
         return property;
     }
@@ -97,7 +97,7 @@ public class DbInit {
         Property property = new Property();
         property.setName("Pleiada Boutique Hotel & Spa");
         property.setLocation("Iasi");
-        property.setFacilities("parking,restaurant, spa, WIFI");
+        property.setFacilities(Facility.SPA);
         propertyRepository.save(property);
         return property;
     }

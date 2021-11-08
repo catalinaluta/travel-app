@@ -11,69 +11,35 @@
 <!-- navbar -->
 <div th:fragment="navbar">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light text-white">
-        <div class="container-fluid">
-            <svg class="bi me-2" width="40" height="32">
-                <use xlink:href="#bootstrap"></use>
-            </svg>
+    <nav class="navbar navbar-dark bg-dark">
 
-            <a class="navbar-brand" href="/home">
-                <img th:src="@{/images/icon-32x32.png}"/>
-                Agile
-            </a>
-            <button class="navbar-toggler" data-bs-target="#navbarScroll" data-bs-toggle="collapse" type="button"
-                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
+        <a class="navbar-brand" href="/home">
+            <img th:src="@{/images/travel-suitcase-logo.jpg}" style="width:192px; height:192px"/>
+        </a>
 
-                <!-- left side -->
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/projects}">Projects</a>
-                    </li>
+        <a class="navbar-brand" th:href="@{/}">Home</a>
 
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tasks}">Issues</a>
-                    </li>
+        <a class="navbar-brand" th:href="@{/properties}">Properties</a>
 
-                    <!-- show only to admins -->
-                    <li class="nav-item" sec:authorize="hasRole('ADMIN')">
-                        <a class="nav-link" th:href="@{/users}">Users</a>
-                    </li>
-                </ul>
+        <a class="navbar-brand" th:href="@{/reservations/add}">Stays</a>
 
-                <!-- right side -->
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item">
-                        <a class="nav-link disabled" tabindex="-1" aria-disabled="true" sec:authentication="name"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a aria-disabled="true"
-                           class="nav-link"
-                           data-bs-placement="bottom"
-                           data-bs-toggle="tooltip" tabindex="-1" th:href="@{/logout}"
-                           title="Tooltip on bottom">Log out</a>
-                    </li>
+        <!-- TODO: display these buttons only if not authenticated -->
 
-                    <div class="flex-shrink-0 dropdown">
-                        <a aria-expanded="false" class="d-block link-dark text-decoration-none dropdown-toggle"
-                           data-bs-toggle="dropdown" href="#" id="dropdownUser">
-                            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                        </a>
-                        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser" data-popper-placement="bottom">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" data-bs-placement="bottom"
-                                   data-bs-toggle="tooltip" tabindex="-1" th:href="@{/logout}"
-                                   title="Sign out">Sign out</a></li>
-                        </ul>
-                    </div>
-                </ul>
-            </div>
-        </div>
+        <!-- navigation button -->
+        <!-- must search in Controller @GetMapping("/login") -->
+        <a th:href="@{/login}">
+            <!-- gray button -->
+            <button class="btn btn-secondary" id="login" name="login" type="button">Log in</button>
+        </a>
+
+        <!-- must search in Controller @GetMapping("/register") -->
+        <a th:href="@{/register}">
+            <button class="btn btn-primary" id="register" name="register" type="submit">Register</button>
+        </a>
+
+        <!-- Stays -->
+        <!-- TODO: go to /reservations -->
+
     </nav>
 
     <div th:replace="fragments/footer-js :: footer-js"/>

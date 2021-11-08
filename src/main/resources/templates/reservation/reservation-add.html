@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/head-css :: head-css"/>
+    <title>Reservation add</title>
+</head>
+
+<body>
+
+<div th:replace="fragments/header :: navbar"/>
+
+<h2>Add reservation</h2>
+
+<form class="row g-3 needs-validation" novalidate th:action="@{/reservations/add}" th:object="${reservation}" method="post">
+
+    <div>
+
+        <!-- room type -->
+        <div class="col-md-4 form-group required">
+            <label for="roomType" class="form-label">Room type</label>
+            <input class="form-control" id="roomType" placeholder="Room type" required th:field="*{roomType}" type="text">
+        </div>
+
+        <!-- property type -->
+        <div class="col-md-2 form-group required">
+            <label for="propertyType" class="form-label">Property type</label>
+            <input class="form-control" id="propertyType" placeholder="Property type" required th:field="*{propertyType}"
+                   type="text">
+        </div>
+
+    </div>
+
+    <div class="col-12">
+        <a th:href="@{/reservations}">
+            <button class="btn btn-secondary" id="cancel" type="button">Cancel</button>
+        </a>
+        <button class="btn btn-primary" id="save" type="submit">Add reservation</button>
+    </div>
+
+</form>
+
+<div th:replace="fragments/footer-js :: footer-js"/>
+</body>
+
+</html>

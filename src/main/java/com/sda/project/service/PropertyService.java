@@ -1,7 +1,6 @@
 package com.sda.project.service;
 
 import com.sda.project.model.Property;
-import com.sda.project.model.Reservation;
 import com.sda.project.repository.PropertyRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,5 +25,11 @@ public class PropertyService {
         log.info("finding all properties");
 
         return propertyRepository.findAll();
+    }
+
+    public Property save(Property property) {
+        log.info("save property {}", property);
+
+        return propertyRepository.save(property);
     }
 }

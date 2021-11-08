@@ -1,6 +1,6 @@
 package com.sda.project.model;
 
-public enum Facilities {
+public enum Facility {
     WIFI,
-    RESTAURANT
+    SPA, RESTAURANT
 }

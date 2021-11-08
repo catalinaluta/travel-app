@@ -19,7 +19,7 @@ public class Property {
     private Long id;
     private String name;
     private String location;
-    private Facilities facilities;
+    private Facility facility;
 
     @OneToMany(
             mappedBy = "property",
@@ -62,12 +62,12 @@ public class Property {
         this.location = location;
     }
 
-    public Facilities getFacilities() {
-        return facilities;
+    public Facility getFacilities() {
+        return facility;
     }
 
-    public void setFacilities(Facilities facilities) {
-        this.facilities = facilities;
+    public void setFacilities(Facility facility) {
+        this.facility = facility;
     }
 
     public Set<Room> getRooms() {
@@ -76,8 +76,5 @@ public class Property {
 
     public void setRooms(Set<Room> rooms) {
         this.rooms = rooms;
-    }
-
-    public void setFacilities(String facilities ) {
     }
 }

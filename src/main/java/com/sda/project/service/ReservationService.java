@@ -26,6 +26,10 @@ public class ReservationService {
 
         return reservationRepository.findAll();
     }
+
+    public void save(Reservation reservation) {
+
+    }
 }
 
 
