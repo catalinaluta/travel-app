@@ -93,6 +93,15 @@ public class DbInit {
         return property;
     }
 
+    private Property createHotel3() {
+        Property property = new Property();
+        property.setName("Pleiada Boutique Hotel & Spa");
+        property.setLocation("Iasi");
+        property.setFacilities("parking,restaurant, spa, WIFI");
+        propertyRepository.save(property);
+        return property;
+    }
+
     private Room createRoom() {
         Room room = new Room();
         room.setRoomType(RoomType.DOUBLE);

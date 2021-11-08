@@ -22,17 +22,20 @@
 
         <!-- location -->
         <div class="col-md-2 form-group required">
-            <label for="projectKey" class="form-label">Key</label>
+            <label for="projectKey" class="form-label">Location</label>
             <input class="form-control" id="projectKey" placeholder="Project key" required th:field="*{projectKey}"
                    type="text">
         </div>
 
         <!-- facilities -->
         <div class="col-md-2 form-group required">
-            <label for="projectKey" class="form-label">Key</label>
+            <label for="projectKey" class="form-label">Facilities</label>
             <input class="form-control" id="facilities" placeholder="Project key" required th:field="*{projectKey}"
                    type="text">
+            <button type="button" class="btn btn-dark">Add property</button>
         </div>
+
+        <button type="button" class="btn btn-dark">Dark</button>
 
     </div>
 
@@ -41,7 +44,7 @@
         <a th:href="@{/properties}">
             <button class="btn btn-secondary" id="cancel" type="button">Cancel</button>
         </a>
-        <button class="btn btn-primary" id="save" type="submit">Create project</button>
+        <button class="btn btn-primary" id="save" type="submit">Create property</button>
     </div>
 
 </form>

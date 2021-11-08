@@ -8,9 +8,16 @@
 
 <nav class="navbar navbar-dark bg-dark">
 
+    <a class="navbar-brand" href="/home">
+        <img th:src="@{/images/travel-suitcase.jpg}"/>
+    </a>
+
     <a class="navbar-brand" th:href="@{/}">Home</a>
 
     <a class="navbar-brand" th:href="@{/properties}">Properties</a>
+
+
+
 
     <!-- TODO: display these buttons only if not authenticated -->
 
@@ -23,15 +30,20 @@
 
     <!-- must search in Controller @GetMapping("/register") -->
     <a th:href="@{/register}">
-        <button class="btn btn-primary" id="register" name="register" type="submit">Sign up</button>
+        <button class="btn btn-primary" id="register" name="register" type="submit">Register</button>
     </a>
 
     <!-- Stays -->
 
 </nav>
+<br>
+<br>
+<br>
+<br>
+
 
 <div class="container img-fluid">
-    <div>Welcome to travel-app!</div>
+    <div text align="center">Book you journey now!</div>
 </div>
 
 <div th:replace="fragments/footer-js :: footer-js"/>
