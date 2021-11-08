@@ -29,7 +29,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // static resources
                 .antMatchers("/static/favicon.ico", "/images/**", "/js/**", "/css/**").permitAll()
 
-                .antMatchers("/home/**").permitAll()
                 .antMatchers("/properties/**").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/reservations/**").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/users").hasRole("ADMIN")
@@ -37,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.formLogin(form -> form.loginPage("/login").permitAll());
         http.formLogin().usernameParameter("email");
-        http.formLogin().defaultSuccessUrl("/home", true);
+        http.formLogin().defaultSuccessUrl("/", true);
 
         http.logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

@@ -2,12 +2,43 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/head-css :: head-css"/>
-    <title>Title</title>
+    <title>Properties</title>
 </head>
 
 <body>
-<div>
+
+<!-- main container -->
+<div class="main container">
     <h1>Properties</h1>
+
+    <!-- add boostrap table -->
+    <!-- for each reservation add row in table -->
+    <table class="table">
+
+        <!-- table header -->
+        <thead>
+        <tr>
+            <th scope="col">Location</th>
+            <th scope="col">Name</th>
+            <!--            <th scope="col">Check-in Date</th>-->
+            <!--            <th scope="col">Check-out Date</th>-->
+            <th scope="col">Facilities</th>
+        </tr>
+        </thead>
+
+        <!-- table body -->
+        <tbody>
+
+        <!-- table row -->
+        <tr th:each="property : ${properties}">
+            <!-- table cell -->
+            <td th:text="${property.location}"></td>
+            <td th:text="${property.name}"></td>
+            <td th:text="${property.facilities}"></td>
+        </tr>
+        </tbody>
+    </table>
+
 </div>
 
 <div th:replace="fragments/footer-js :: footer-js"/>

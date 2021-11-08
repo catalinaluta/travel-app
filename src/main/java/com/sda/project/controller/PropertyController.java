@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
-import java.util.Scanner;
 
 @Controller
 public class PropertyController {
@@ -32,10 +31,10 @@ public class PropertyController {
         model.addAttribute("properties", properties);
         return "property/properties";
     }
+
     @GetMapping("/properties/add")
     public String showAddPage(Model model) {
         model.addAttribute("property", new Property());
-        model.addAttribute("users", userService.findAll());
         return "property/property-add";
     }
 }

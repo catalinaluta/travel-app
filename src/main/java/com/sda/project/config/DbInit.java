@@ -60,6 +60,8 @@ public class DbInit {
             Room room = createRoom();
             property.addRoom(room);
             propertyRepository.save(property);
+
+            createHotel2();
         };
     }
 
@@ -82,23 +84,22 @@ public class DbInit {
         return property;
     }
 
-    private Property createProperty() {
+    private Property createHotel2() {
         Property property = new Property();
         property.setName("International Bucharest City Centre Hotel");
         property.setLocation("Bucuresti");
         property.setFacilities("parking, Restaurant, WIFI");
         propertyRepository.save(property);
         return property;
+    }
 
-
-        private Room createRoom() {
-           Room room = new Room();
-           room.setRoomType(RoomType.DOUBLE);
-           room.setRoomCode("301");
-           roomRepository.save(room);
-           return room;
-        }
-
+    private Room createRoom() {
+        Room room = new Room();
+        room.setRoomType(RoomType.DOUBLE);
+        room.setRoomCode("301");
+        roomRepository.save(room);
+        return room;
+    }
 
     private User createMainAdmin() {
         User admin = new User(
