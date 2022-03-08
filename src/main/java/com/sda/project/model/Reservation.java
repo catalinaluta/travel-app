@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -15,14 +16,23 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String roomType;
-    private String propertyType;
     private LocalDate checkIn;
     private LocalDate checkOut;
-    private String place;
-    private String facilities;
+
+    @ManyToOne
+    private User user;
+
+    @ManyToOne
+    private Room room;
 
     public Reservation() {
+    }
+
+    public Reservation(LocalDate checkIn, LocalDate checkOut, User user, Room room) {
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.user = user;
+        this.room = room;
     }
 
     public Long getId() {
@@ -33,20 +43,17 @@ public class Reservation {
         this.id = id;
     }
 
-    public String getRoomType() {
-        return roomType;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reservation that = (Reservation) o;
+        return Objects.equals(id, that.id);
     }
 
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
-    }
-
-    public String getPropertyType() {
-        return propertyType;
-    }
-
-    public void setPropertyType(String propertyType) {
-        this.propertyType = propertyType;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     public LocalDate getCheckIn() {
@@ -65,45 +72,28 @@ public class Reservation {
         this.checkOut = checkOut;
     }
 
-    public String getPlace() {
-        return place;
+    public User getUser() {
+        return user;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getFacilities() {
-        return facilities;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setFacilities(String facilities) {
-        this.facilities = facilities;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Reservation that = (Reservation) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     @Override
     public String toString() {
         return "Reservation{" +
                 "id=" + id +
-                ", roomType='" + roomType + '\'' +
-                ", propertyType='" + propertyType + '\'' +
                 ", checkIn=" + checkIn +
                 ", checkOut=" + checkOut +
-                ", place='" + place + '\'' +
-                ", facilities='" + facilities + '\'' +
                 '}';
     }
 }

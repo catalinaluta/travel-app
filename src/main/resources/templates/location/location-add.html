@@ -38,7 +38,7 @@
             <select class="custom-select tm-select-accounts" id="facility" value="Select facility"
                     th:field="*{facility}" required>
                 <option value="" disabled>Select facility</option>
-                <option th:each="facility : ${T(com.sda.project.model.Facility.values()}"
+                <option th:each="facility : ${T(com.sda.project.model.FacilityType.values()}"
                         th:value="${facility}"
                         th:text="${facility}">
                 </option>

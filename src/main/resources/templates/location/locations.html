@@ -32,11 +32,17 @@
         <tbody>
 
         <!-- table row -->
-        <tr th:each="property : ${properties}">
+        <tr th:each="location : ${locations}">
             <!-- table cell -->
-            <td th:text="${property.location}"></td>
-            <td th:text="${property.name}"></td>
-            <td th:text="${property.facilities}"></td>
+            <td>
+                <a th:href="@{/locations/{id} (id = ${location.id})}" th:text="${location.name}"></a>
+            </td>
+            <td th:text="${location.city}"></td>
+            <td>
+                <p th:each="facility: ${location.facilities}"
+                   th:text="${facility.facilityType}">
+                </p>
+            </td>
         </tr>
         </tbody>
     </table>

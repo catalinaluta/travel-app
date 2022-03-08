@@ -15,19 +15,30 @@
 
     <div>
 
-        <!-- room type -->
+        <!-- check in -->
         <div class="col-md-4 form-group required">
-            <label for="roomType" class="form-label">Room type</label>
-            <input class="form-control" id="roomType" placeholder="Room type" required th:field="*{roomType}" type="text">
+            <label class="form-label" for="checkIn">Check in</label>
+            <input class="form-control" id="checkIn" placeholder="CheckIn" required th:field="*{checkIn}" type="date">
         </div>
 
-        <!-- property type -->
-        <div class="col-md-2 form-group required">
-            <label for="propertyType" class="form-label">Property type</label>
-            <input class="form-control" id="propertyType" placeholder="Property type" required th:field="*{propertyType}"
-                   type="text">
+        <!-- check out -->
+        <div class="col-md-4 form-group required">
+            <label class="form-label" for="checkOut">Check out</label>
+            <input class="form-control" id="checkOut" placeholder="CheckOut" required th:field="*{checkOut}"
+                   type="date">
         </div>
 
+        <!-- room select -->
+        <div class="col-md-4 form-group required">
+            <label class="form-label" for="room">Room</label>
+            <select class="form-select" id="room" required th:field="${rooms}">
+                <option selected th:value="null">Select a room</option>
+                <option th:each="room : ${rooms}"
+                        th:text="|${room.roomType} ${room.roomNumber}|"
+                        th:value="${room.id}">
+                </option>
+            </select>
+        </div>
     </div>
 
     <div class="col-12">

@@ -27,8 +27,10 @@ public class ReservationService {
         return reservationRepository.findAll();
     }
 
-    public void save(Reservation reservation) {
+    public Reservation save(Reservation reservation) {
+        log.info("save reservations {}", reservation);
 
+        return reservationRepository.save(reservation);
     }
 }
 

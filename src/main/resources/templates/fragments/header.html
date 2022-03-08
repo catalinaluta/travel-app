@@ -19,9 +19,9 @@
 
         <a class="navbar-brand" th:href="@{/}">Home</a>
 
-        <a class="navbar-brand" th:href="@{/properties}">Properties</a>
+        <a class="navbar-brand" th:href="@{/locations}">Locations</a>
 
-        <a class="navbar-brand" th:href="@{/reservations/add}">Stays</a>
+        <a class="navbar-brand" sec:authorize="isAuthenticated()" th:href="@{/reservations/add}">Reservations</a>
 
         <!-- TODO: display these buttons only if not authenticated -->
 
